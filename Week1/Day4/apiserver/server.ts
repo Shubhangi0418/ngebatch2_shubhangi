@@ -46,6 +46,8 @@ app.get('/courses/byid',(req,res)=>{
     res.send('Good Evening User, you are enrolled in Angular with courseid as  - '+ query);
 })
 
+app.use(express.json())
+
 //POST request
 //3.5 an endpoint for a post request
 app.post('/loginUser',(req,res)=>{

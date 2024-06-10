@@ -1,0 +1,18 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm ci && npx tsc ./index.ts && npx ts-node open.ts",
+    "update-javascript": "npx tsc ./index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "open": "^8.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
