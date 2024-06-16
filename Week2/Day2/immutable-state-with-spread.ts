@@ -25,7 +25,13 @@ const academyUsers: SomeUsers = {
 // and without mutating the original user objects either
 
 const ageUpdater = (originalUsers: SomeUsers) => {
-  // TODO: Your code goes here
+  let newUser = {...originalUsers};
+  Object.keys(newUser).forEach((key) => {
+  let x = { ...newUser[key]};  
+  x.age = 21;
+  newUser[key] = x;
+});
+return newUser;
 }
 
 // Call the Age Updater function

@@ -57,10 +57,14 @@ return sum == 0 ? -1 : sum / developers.length
 // For the list above, it would return { Javascript: 1, Python: 2 }
 // NB. Developers could know any language (not just JS or Python), so the keys of the object will depend on what developers you get passed.
 export function getLanguageCounts (developers: Developer[]) {
- let map :any = [];
-  developers.forEach(element => {
-  
- });
+  let map :any = [];
+  let list : String[] =developers.map(element =>  element.language);
+  let list1 : String[] =[... new Set(list)];
+
+  list1.forEach((lang)=> {
+    let x = (developers.filter((dev) => lang == dev.language)).length;
+    console.log(lang + " : " + x);
+  })
 }
 
 // getOldest should return an array which includes the name of the developer who is the oldest.
