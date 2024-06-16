@@ -61,18 +61,22 @@ const foodData: Food[] = [
   }
 ]
 
+const myErrorCallback = (data: any) => console.error('There was an Error:', data)
+
 // Part 1: Refactor queryUser and queryFood to 'reject' when missing the required values
 const queryUser = (personName: string): Promise<User> =>
-  new Promise((resolve) => {
+  new Promise((resolve, reject) => {
     const result = userData.filter((user) => user.name === personName)[ 0 ] || null
-    resolve(result)
+    resolve(result);
+    reject('Required value is missing')
   })
 
 // Part 1: Refactor queryUser and queryFood to 'reject' when missing the required values
 const queryFood = (foodId: number | null): Promise<Food> =>
-  new Promise((resolve) => {
+  new Promise((resolve,reject) => {
     const result = foodData.filter((food) => food.id === foodId)[ 0 ] || null
-    resolve(result)
+    resolve(result);
+    reject('Required value is missing')
   })
 
 // Fetch data
@@ -81,13 +85,14 @@ const findFavouriteFood = (name: string) =>
     queryUser(name)
       .then((person) => queryFood(person.food))
       .then((foodItem) => resolve(`${name} likes ${foodItem.name}`))
+      .catch(myErrorCallback)
   })
 
-console.log('User data:', userData)
-console.log('Food data:', foodData)
+// console.log('User data:', userData)
+// console.log('Food data:', foodData)
 
-console.log('')
-console.log('Bad Results:')
+// console.log('')
+// console.log('Bad Results:')
 
 // Part 2. Add '.catch' blocks to these function chains to catch the rejected promises
 findFavouriteFood('').then(console.log) // Test rejection for not providing a name

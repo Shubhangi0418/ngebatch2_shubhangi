@@ -55,35 +55,59 @@ const foodData: Food[] = [
 
 // Part 1: Refactor queryUser to use promises - see below first
 // When you make a new promise you will need to implicitly or explicitly return it
-const queryUser = (personName: string, callback: (user: User) => void) => {
+const queryUser1 = (personName: string, callback: (user: User) => void) => {
   const result = userData.filter((user) => user.name === personName)[ 0 ] || null
   callback(result)
 }
+const queryUser = (personName: string): Promise<User> =>
+  new Promise(
+    (resolve)=>{resolve(userData.filter((user) => user.name === personName)[ 0 ] || null)}
+    );
 
 // Part 2: Refactor queryFood to use promises - see below first
 // When you make a new promise you will need to implicitly or explicitly return it
-const queryFood = (foodId: number, callback: (food: Food) => void) => {
+const queryFood1 = (foodId: number, callback: (food: Food) => void) => {
   const result = foodData.filter((food) => food.id === foodId)[ 0 ] || null
   callback(result)
 }
 
+
+const queryFood=(foodId: number): Promise<Food> =>
+  new Promise(
+    (resolve) => {
+        resolve(foodData.filter((food) => food.id === foodId )[ 0 ] || null);
+    }
+  )
+
 // Part 3: Inside findFavouriteFood use the two functions queryUser and queryFood in a chain
 // Part 4: Refactor findFavouriteFood to use promises (use your chain!) - see below first
 // When you make a new promise you will need to implicitly or explicitly return it
-const findFavouriteFood = (name: string, callback: (message: string) => void) => {
+/*const findFavouriteFood1 = (name: string, callback: (message: string) => void) => {
   queryUser(name, (person) => {
     queryFood(person.food, (foodItem) => {
       callback(`${name} likes ${foodItem.name}`)
     })
   })
-}
+}*/
+
+queryFood(1).then((result) => {
+  console.log('result---'+result) // :-)
+})
+
+queryFood(1).then((foodItem) => console.log(foodItem)) //{ name: 'Pizza', id: 1 }
+
+queryUser('John')
+  .then((person) => queryFood(person.food))
+  .then((foodItem) => console.log(`John likes ${foodItem.name}`))
+
+
 
 // Debugging: Use these before you start to help you understand what the code is doing
-console.log('Results:')
-findFavouriteFood('John', console.log)
-findFavouriteFood('Bob', console.log)
-findFavouriteFood('Sarah', console.log)
-findFavouriteFood('Faye', console.log)
+//console.log('Results:')
+// findFavouriteFood('John', console.log)
+// findFavouriteFood('Bob', console.log)
+// findFavouriteFood('Sarah', console.log)
+// findFavouriteFood('Faye', console.log)
 
 // ----- EXERCISES -------------------------------------------------------
 

@@ -90,24 +90,22 @@ const queryFood = (foodId: number | null): Promise<Food> =>
 
 // Part 1. Refactor this to use async/await. 
 // Part 2. Refactor this to use a try/catch block to handle errors.
-const findFavouriteFood = (name: string) =>
-  new Promise((resolve, reject) => {
-    queryUser(name)
-      .then((person) => queryFood(person.food))
-      .then((foodItem) => resolve(`${name} likes ${foodItem.name}`))
-      .catch((err) => reject(err))
-  })
+const findFavouriteFood = async(name: string): Promise<String> =>{
+    const user=await queryUser(name);
+    const foodItem= await queryFood(user.food)
+    return `${name} likes ${foodItem.name}`
+}
 
-console.log('User data:', userData)
-console.log('Food data:', foodData)
+// console.log('User data:', userData)
+// console.log('Food data:', foodData)
 
-console.log('')
-console.log('Bad Results:')
+// console.log('')
+// console.log('Bad Results:')
 // Uncomment these one at a time to test that your refactor works:
 //
 // findFavouriteFood('') //Test rejection for not providing a name
 // findFavouriteFood('Megan') //Test rejection for giving a name that isn't in database
-// findFavouriteFood('Tim') //Test rejection for missing food id
+findFavouriteFood('Tim') //Test rejection for missing food id
 
 
 // ----- EXERCISES -------------------------------------------------------

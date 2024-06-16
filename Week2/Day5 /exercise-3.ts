@@ -99,10 +99,19 @@ console.log('Food data:', foodData)
 console.log('')
 console.log('Results:')
 
-const tasks = []
+const tasks:any[] = []
 userData.forEach((user) => {
   tasks.push(findFavouriteFood(user.name))
 })
+
+const successReport = (someData: any) => {
+  console.log('Success all finished!', someData)
+}
+
+console.log('Start now...')
+Promise.all(tasks).then(successReport) // [1,2,1] an array of all the Resolved values
+console.log('...Done')
+
 
 // Part 1: Add some code here to find the favourite food for all users concurrently
 
