@@ -7,21 +7,29 @@ Run this with
 import { add, safeMultiply } from './maths-utils'
 
 describe('When calling the Add function', () => {
+  let value: number
+  // beforeEach(() =>{
+  //   value = add(10,20)
+  // })
+
   it('should add two integers', () => {
     // Arrange: Setup variables here
 
     // Act: Call function here
+    value = add(10,20)
 
     // Assert: Check results here
+    expect(value).toBe(30);
+    console.log('Result '+value);
 
   })
 
   it('will add strings and numbers', () => {
-    // Arrange: Setup variables here
-
-    // Act: Call function here
+    value = add('A',20)
 
     // Assert: Check results here
+    expect(value).toBe('A20');
+    console.log('Result '+value);
   })
 })
 
@@ -35,24 +43,30 @@ describe('When calling the safeMultiply function', () => {
 
     // Assert: Check results here
 
+    let result= safeMultiply(10,5)
+    // Assert: Check results here
+    expect(result).toBe(50);
+    console.log('Result '+result);
+
   })
 
   it('will throw an error when parameter a is bad', () => {
-    // Arrange: Setup variables here
-
-    // Act: Call function here + Assert: Check results here
-    // Hint: add a wrapper function
-        
-    // Assert
-    // Hint: use "toThrow()"
+    let a: any = 'A', b: any = 5;
+    const result = () => {
+      safeMultiply(a, b);
+    };
+    // Assert: Check results here
+    expect(result).toThrow(new Error(`Parameters a and b must be numeric but got a='${a}' and b='${b}'`));
+    console.log('Result '+result);
   })
     
   it('will throw an error when parameter b is bad', () => {
-    // Arrange: Setup variables here
-        
-    // Act: Call function here
-        
+    let b: any = 'A', a: any = 5;
+    const result = () => {
+      safeMultiply(a, b);
+    };
     // Assert: Check results here
-    // You can either do this with a wrapper function and .toThrow, or you can try using a try/catch block
+    expect(result).toThrow(new Error(`Parameters a and b must be numeric but got a='${a}' and b='${b}'`));
+    console.log('Result '+result);
   })
 })
