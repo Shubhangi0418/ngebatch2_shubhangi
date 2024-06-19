@@ -87,6 +87,7 @@ const queryFood = (foodId: number | null): Promise<Food> =>
       resolve(result)
     }
   })
+  
 
 // Part 1. Refactor this to use async/await. 
 // Part 2. Refactor this to use a try/catch block to handle errors.
