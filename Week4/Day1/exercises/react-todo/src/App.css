@@ -1,0 +1,13 @@
+ul {
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  padding: 0.5rem;
+}
+
+li.complete {
+  text-decoration: line-through;
+}

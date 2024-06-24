@@ -1,0 +1,47 @@
+.app {
+  padding: 3rem 0 0 0;
+  text-align: center;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.comment {
+  margin: 20px;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-name {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.user-image {
+  border-radius: 10px;
+}
+
+.comment-text {
+  margin: 10px 0;
+  align-self: flex-start;
+}
+
+.comment-date {
+  color: #ddd;
+  font-style: italic;
+  font-size: 0.9rem;
+  align-self: flex-end;
+}
