@@ -3,6 +3,7 @@ import { useState } from 'react'
 import ClickerButton from './components/ClickerButton'
 import ColourButton from './components/ColourButton'
 import ControlledComponent from './components/ControlledComponent'
+import UncontrolledComponent from './components/UncontrolledComponent'
 
 const App = () => {
   // Our global state
@@ -28,11 +29,16 @@ const App = () => {
   // Render the ColourButton component - TODO: pass down state value as a prop, as well as the function to update the state
   return (
     <>
-      <ClickerButton clicks={clicks} colour={colour} handleClick={handleCounterClick} />
-      <ColourButton  colour={colour} handleClick={handleColorClick}/>
-      <ControlledComponent></ControlledComponent>
+      <ClickerButton
+        clicks={clicks}
+        colour={colour}
+        handleClick={handleCounterClick}
+      />
+      <ColourButton colour={colour} handleClick={handleColorClick} />
+      <ControlledComponent ></ControlledComponent>
+      <UncontrolledComponent></UncontrolledComponent>
     </>
-  )
+  );
 }
 
 export default App

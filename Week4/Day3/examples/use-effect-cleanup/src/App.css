@@ -1,0 +1,20 @@
+select {
+  padding: 0.5rem 1rem;
+  display: inherit;
+  justify-content: center;
+}
+
+.app {
+  padding: 3rem 0 0 0;
+  text-align: center;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: 1px solid #e64a19;
+}
