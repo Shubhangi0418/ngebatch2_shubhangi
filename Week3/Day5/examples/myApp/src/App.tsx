@@ -3,8 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Greeting from "./components/Greeting";
+import CatalogDisplay from './components/CatalogDisplay';
+import Catalog from './components/Catalog'
+
 function App() {
   const [count, setCount] = useState(0)
+  const [selected,onSelect] = useState<string>()
 
   return (
     <>
@@ -28,8 +32,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Catalog></Catalog>
     </>
-  )
+  );
 }
 
 export default App
