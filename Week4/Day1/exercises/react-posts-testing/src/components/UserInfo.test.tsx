@@ -11,5 +11,9 @@ import UserInfo from './UserInfo'
 describe('Display UserInfo', () => {
   it('should render the user\'s name', () => {
     // todo
+    render(<UserInfo user={'','' } />);
+
+    const foundElement = screen.getByText(/Hello/);
+    expect(foundElement).toHaveTextContent("Hello Alice");
   })
 })

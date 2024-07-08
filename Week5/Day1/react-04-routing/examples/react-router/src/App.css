@@ -1,0 +1,29 @@
+.app {
+  padding: 3rem 0 0 0;
+  text-align: left;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  padding: 1rem 1rem 0 0;
+}
+
+nav a.active {
+  font-weight: bold;
+}
+
+button {
+  width: 200px;
+}
