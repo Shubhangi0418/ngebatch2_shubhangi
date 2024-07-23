@@ -1,0 +1,18 @@
+*.js
+!jest.config.js
+*.d.ts
+# standard ignores for when we share code out
+node_modules
+build
+dist
+.DS_Store
+
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+# to stop old build clashing we ignore this in the Academy
+cdk.context.json
+
+bootstrap-output.txt
+invoke-output.txt

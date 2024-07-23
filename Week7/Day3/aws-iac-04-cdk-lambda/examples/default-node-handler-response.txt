@@ -1,0 +1,13 @@
+Response
+{
+  "statusCode": 200,
+  "body": "{ \"message\": \"Hello from Lambda!\" }"
+}
+
+Function Logs
+START RequestId: d53493ca-43e5-42a2-a218-c4dca7a8c8fb Version: $LATEST
+END RequestId: d53493ca-43e5-42a2-a218-c4dca7a8c8fb
+REPORT RequestId: d53493ca-43e5-42a2-a218-c4dca7a8c8fb	Duration: 2.73 ms	Billed Duration: 3 ms	Memory Size: 128 MB	Max Memory Used: 65 MB	Init Duration: 140.11 ms
+
+Request ID
+d53493ca-43e5-42a2-a218-c4dca7a8c8fb

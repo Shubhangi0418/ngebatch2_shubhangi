@@ -1,0 +1,6 @@
+START RequestId: de35b98c-6279-4c76-bb21-03be5c8674c4 Version: $LATEST
+2021-04-26T14:44:25.972Z	de35b98c-6279-4c76-bb21-03be5c8674c4	INFO	EVENT: {"gigLocation":"Leeds","gigId":"35"}
+2021-04-26T14:44:25.972Z	de35b98c-6279-4c76-bb21-03be5c8674c4	INFO	CONTEXT: {"callbackWaitsForEmptyEventLoop":true,"functionVersion":"$LATEST","functionName":"nja-markm-lambda","memoryLimitInMB":"128","logGroupName":"/aws/lambda/nja-markm-lambda","logStreamName":"2021/04/26/[$LATEST]d9437d79b8bb45c298a69edbba0d46dd","invokedFunctionArn":"arn:aws:lambda:eu-west-1:${AWS_ACCOUNT}:function:nja-markm-lambda","awsRequestId":"de35b98c-6279-4c76-bb21-03be5c8674c4"}
+2021-04-26T14:44:25.972Z	de35b98c-6279-4c76-bb21-03be5c8674c4	INFO	more code here
+END RequestId: de35b98c-6279-4c76-bb21-03be5c8674c4
+REPORT RequestId: de35b98c-6279-4c76-bb21-03be5c8674c4	Duration: 62.40 ms	Billed Duration: 63 ms	Memory Size: 128 MB	Max Memory Used: 65 MB

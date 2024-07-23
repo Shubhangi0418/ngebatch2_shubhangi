@@ -1,0 +1,1 @@
+{"status":"ok","list":["Siouxie And The Banshees","The Doors","The Beatles"]}

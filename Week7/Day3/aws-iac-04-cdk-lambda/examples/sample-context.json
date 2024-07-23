@@ -1,0 +1,10 @@
+{
+    "callbackWaitsForEmptyEventLoop": true,
+    "functionVersion": "$LATEST",
+    "functionName": "nja-markm2-demo",
+    "memoryLimitInMB": "128",
+    "logGroupName": "/aws/lambda/nja-markm2-demo",
+    "logStreamName": "2021/07/06/[$LATEST]ba0eb088c0c5428c947dcc12258c3383",
+    "invokedFunctionArn": "arn:aws:lambda:eu-west-1:745580839125:function:nja-markm2-demo",
+    "awsRequestId": "4bbcfde8-d1c2-4034-8d02-dac68a322f56"
+}

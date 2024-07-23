@@ -1,0 +1,15 @@
+*.js
+!jest.config.js
+*.d.ts
+# standard ignores for when we share code out
+node_modules
+build
+dist
+.DS_Store
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+bootstrap-output.txt
+invoke-output.txt
