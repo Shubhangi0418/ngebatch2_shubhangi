@@ -1,14 +1,14 @@
-import * as cdk from 'aws-cdk-lib'
-import { Construct } from 'constructs'
-import * as iam from 'aws-cdk-lib/aws-iam'
-import * as s3 from 'aws-cdk-lib/aws-s3'
-import * as s3Deployment from 'aws-cdk-lib/aws-s3-deployment'
-import * as cloudfront from 'aws-cdk-lib/aws-cloudfront'
-import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
-import * as acm from 'aws-cdk-lib/aws-certificatemanager'
-import * as lambda from 'aws-cdk-lib/aws-lambda'
-import * as nodejs from 'aws-cdk-lib/aws-lambda-nodejs'
-import * as route53 from 'aws-cdk-lib/aws-route53'
+import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
+import * as iam from "aws-cdk-lib/aws-iam";
+import * as s3 from "aws-cdk-lib/aws-s3";
+import * as s3Deployment from "aws-cdk-lib/aws-s3-deployment";
+import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
+import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
+import * as acm from "aws-cdk-lib/aws-certificatemanager";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as nodejs from "aws-cdk-lib/aws-lambda-nodejs";
+import * as route53 from "aws-cdk-lib/aws-route53";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
 
 /*
@@ -223,19 +223,35 @@ export class CdkStack extends cdk.Stack {
       },
     });
 
+    // Raw api url
+    new cdk.CfnOutput(this, "RawApiUrl", {
+      value: api.url ?? "NO_URL",
+    });
+
+    // healthcheck lambda method on API
     const healthcheckApi = api.root.addResource("healthcheck");
     healthcheckApi.addMethod(
       "GET",
       new apigw.LambdaIntegration(healthcheckLambda, { proxy: true })
     );
-    
-    // Raw api url
-    new cdk.CfnOutput(this, "RawApiUrl", {
-      value: api.url ?? "NO_URL",
-      
-    });
-    // healthcheck lambda method on API
-   
+
+    const gigApi = api.root.addResource("gigs");
+    gigApi.addMethod(
+      "GET",
+      new apigw.LambdaIntegration(getGigsLambda, { proxy: true })
+    );
+
+    const usersApi = api.root.addResource("users");
+    usersApi.addMethod(
+      "GET",
+      new apigw.LambdaIntegration(getUsersLambda, { proxy: true })
+    );
+
+    const ticketsApi = api.root.addResource("tickets");
+    ticketsApi.addMethod(
+      "GET",
+      new apigw.LambdaIntegration(getTicketsLambda, { proxy: true })
+    );
 
     // gigs GET lambda method on api
     // TODO
